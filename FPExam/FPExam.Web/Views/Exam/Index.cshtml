@@ -1,0 +1,33 @@
+﻿@using FPExam.Web.Models
+
+@model ExamModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.ValidationSummary()
+    
+    @Html.HiddenFor(_ => _.Counter)
+    @Html.DisplayFor(_ => _.Counter)
+    <br />
+    <input type="submit" id="increment" value="Increment" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).on('click', '#increment', submit);
+        });
+
+        function submit(e) {
+            e.preventDefault();
+
+            var counter = parseInt($('#Counter').val()) + 1;
+            $('#Counter').val(counter);
+
+            $('form').submit();
+        }
+    </script>
+}
