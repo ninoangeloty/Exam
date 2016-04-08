@@ -23,6 +23,7 @@ namespace FPExam.Web.Controllers
         {
             if (model.Counter > 10)
             {
+                ModelState.Clear();
                 model.Counter--;
 
                 ModelState.AddModelError("Counter", "Value has reached the maximum number of 10.");
