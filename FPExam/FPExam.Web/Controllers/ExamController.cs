@@ -19,6 +19,7 @@ namespace FPExam.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(ExamModel model)
         {
             if (model.Counter > 10)
